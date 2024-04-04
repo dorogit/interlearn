@@ -33,15 +33,11 @@ class _ChatScreenState extends State<ChatScreen> {
       try {
         var dio = Dio();
         var response = await dio.post(
-          "https://e9d4-146-152-225-59.ngrok-free.app/v1/chat/completions",
+          "https://6f6a8ddf67b4ba86e9bcaeae86213c90.serveo.net/v1/chat/completions",
           data: jsonEncode({
             "model": "Intel/neural-chat-7b-v3-1",
             "messages": [
-              {
-                "role": "user",
-                "content":
-                    "$text Context:(this is our conversation history, it is just for your context. Do not mention this unless necessary for your answer: $conversationHistory)"
-              }
+              {"role": "user", "content": text}
             ]
           }),
           options: Options(headers: {"Content-Type": "application/json"}),
